@@ -1,0 +1,32 @@
+<div class="d-flex align-items-center justify-content-center div-100-p text-center img-login">
+        <div class="row d-flex flex-column login-style">
+    
+            <div class="p-2">
+                <h1 class="text-center">Registrar me</h1>
+            </div>
+            <div class="p-2">
+                <div class="d-flex flex-column form-group">
+                    <label for="correo"><strong>Correo</strong></label>
+                    <input id="correo" class="form-control text-center" type="email" placeholder="Ingrese Correo" name="correo">
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="d-flex flex-column form-group">
+                    <label for="password"><strong>Contraseña</strong></label>
+                    <input id="password" class="form-control text-center" type="password" placeholder="Ingrese contraseña" name="password">
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="d-flex flex-column form-group">
+                    <label for="password"><strong>Confirmación</strong></label>
+                    <input id="password" class="form-control text-center" type="password" placeholder="Ingrese contraseña" name="password">
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="d-flex flex-column form-group">
+                    <button class="btn btn-info">Registrar me</button>
+                    <a [routerLink]="['/login']" class="margin-10">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
