@@ -5,6 +5,8 @@ import { SignupComponent } from "../app/components/signup/signup.component";
 
 import { AppComponent } from './app.component';
 
+import { APP_ROUTING } from '../app/app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,8 @@ import { AppComponent } from './app.component';
     SignupComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
