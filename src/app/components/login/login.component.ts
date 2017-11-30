@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit{
     
     ngOnInit(){
 
-        console.log("On OnInit");
+       /* console.log("On OnInit");
         this._amapoliService.getPeople().subscribe(
             data => 
             {
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit{
             {
                 console.log(error);    
             }
-        );
+        );*/
         
     }
 }
