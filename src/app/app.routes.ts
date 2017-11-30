@@ -6,7 +6,7 @@ import { AppointmentComponent } from "../app/components/appointment/appointment.
 const APP_ROUTES : Routes = [
     {path:"login", component:LoginComponent},
     {path:"signup", component:SignupComponent},
-    {path:"appointment", component:AppointmentComponent}
+    {path:"appointment", component:AppointmentComponent},
     {path:"**", pathMatch:'full', redirectTo:'login'}
 ];
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

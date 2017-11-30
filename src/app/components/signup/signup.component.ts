@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { User }              from "../../models/user";
 import { AmapoliService }    from "../../services/amapoli.service";
+import { Router }            from "@angular/router";
 
 @Component({
     selector:"app-signup",
@@ -14,7 +15,8 @@ export class SignupComponent implements OnInit{
         password:""
     };
 
-    constructor(private _amapoliService:AmapoliService){
+    constructor(private _amapoliService:AmapoliService,
+                private _router:Router){
         
     }
 
@@ -30,11 +32,11 @@ export class SignupComponent implements OnInit{
         this._amapoliService.createUser(this.user).subscribe(
             data => 
             {
-                alert("Ingresado exitosamente");
+                this._router.navigate(['/appointment']);
             },
             error => 
             {
-                console.error("Ya está registrado");
+                this._router.navigate(['/signup']);
             }
         );
 

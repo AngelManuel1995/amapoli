@@ -57,4 +57,8 @@ body , html{
   .fadeIn {
     animation-name: fadeIn;
   }
-  
+  .our-green{
+      color: #93FF93 !important;
+      font-weight: bold;
+
+  }
