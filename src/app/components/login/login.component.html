@@ -6,19 +6,22 @@
         </div>
         <div class="p-2">
             <div class="d-flex flex-column form-group">
-                <label for="correo"><strong>Correo</strong></label>
-                <input id="correo" class="form-control text-center" type="email" placeholder="Ingrese Correo" name="correo">
+                <label for="correo"><strong>Usuario</strong></label>
+                <input id="correo" class="form-control text-center" #user type="email" placeholder="Ingrese Correo" name="correo">
             </div>
         </div>
         <div class="p-2">
             <div class="d-flex flex-column form-group">
                 <label for="password"><strong>Contraseña</strong></label>
-                <input id="password" class="form-control text-center" type="password" placeholder="Ingrese contraseña" name="password">
+                <input id="password" class="form-control text-center" #password type="password" placeholder="Ingrese contraseña" name="password">
             </div>
+        </div>
+        <div *ngIf="noUserMessage" class="p-2 messageError animated fadeIn fast">
+            <p>{{ noUserMessage }}</p>
         </div>
         <div class="p-2">
             <div class="d-flex flex-column form-group">
-                <button class="btn btn-info">Iniciar sesión</button>
+                <button class="btn btn-info" (click)="logIn(user.value, password.value)">Iniciar sesión</button>
                 <a [routerLink]="['/signup']" class="margin-10">Registrar me</a>
             </div>
         </div>

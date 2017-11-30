@@ -44,4 +44,29 @@ export class AmapoliService{
 
     }
 
+    logIn(user:any){
+
+        const headerDict = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        };
+
+        const headerObj = {                                                                                                                                                                                 
+            headers: new Headers(headerDict), 
+        };
+
+        let url = "https://amapoli.herokuapp.com/ingresar";
+        return this._http.post(
+             url,
+             JSON.stringify({username:user.name,password:user.password}), 
+             headerObj
+            ).map(res => {
+                console.log(res.json());
+                res.json();
+                return res.json();
+            });
+
+    }
+
 }
