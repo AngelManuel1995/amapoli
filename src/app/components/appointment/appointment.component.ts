@@ -14,6 +14,12 @@ export class AppointmentComponent implements OnInit{
         userId:null,
         description:""
     }
+    newOurQuery:OurQuery={
+        userId:null,
+        description:""   
+    }
+    diagnosis:string;
+    treatment:string;
 
     queryRespuesta:any = {};
     queryMostrar:any;
@@ -29,16 +35,13 @@ export class AppointmentComponent implements OnInit{
         .subscribe(id => {
             this.ourQuery.userId = parseInt(id);
             this.ourQuery.description = " ";
-            console.log(this.ourQuery);
+//console.log(this.ourQuery);
             this._appointmentService.getAppointment(this.ourQuery).subscribe(
                 data => {
                     this.queryRespuesta = data.description;
                     this.queryMostrar = this.queryRespuesta.split("_");
-                    console.log(this.queryMostrar);
                     this.queryMostrar = this.queryMostrar.join(" ");
-                    console.log(this.queryMostrar);
-
-                    console.log(data);
+       
             },
                 error =>{
                     console.log(error);
@@ -46,5 +49,37 @@ export class AppointmentComponent implements OnInit{
         });
         
     }
+    nextAppointment(response:string){
+        //console.log(response);
+        //console.log(this.queryRespuesta);
+       
+        this.newOurQuery.userId = 56;
+        this.newOurQuery.description = response + this.queryRespuesta;
+
+        this._appointmentService.getAppointment(this.newOurQuery).subscribe(
+            data => {
+                this.diagnosis = data.diagnosis;
+                this.treatment = data.treatment;
+                this.queryRespuesta = data.description;
+                console.log(this.queryRespuesta);
+                this.queryMostrar = data.description;
+                this.queryMostrar = this.queryMostrar.split("_");
+                this.queryMostrar = this.queryMostrar.join(" ");
+
+                console.log(data);
+                console.log(response + data.description);
+                let consultar = response + data.description;
+                this.newOurQuery.description = consultar;
+             //   this.newOurQuery.userId = data.id;
+               // this.newOurQuery.description = data.description;
+                //console.log("Undefined?");
+                //console.log(this.newOurQuery);
+
+        }, error => {
+                console.log(error);
+        });
+    }
+
+
 
 }

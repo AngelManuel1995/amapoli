@@ -2,16 +2,20 @@
 <div *ngIf="_appointmentService.queryRespuesta" class="animated fadeIn fast d-flex align-items-center justify-content-center div-90-p text-center img-appointment">
     <div class="row d-flex flex-column  margin-b-180">
         <div class="p-2 margin-b-100">
-            <strong><h1 class="text-center text-white">BIENVENIDO A M A</h1></strong>
+            <strong><h1 class="text-center text-white ">BIENVENIDO A M A</h1></strong>
         </div>
-        <div class="p-2 margin-b-30 appointment">
-            <div class="p-2 ">
-                <h1 class="text-center text-success"> {{ queryMostrar }}</h1>
+        <div *ngIf="queryMostrar" class="p-2 margin-b-30 appointment">
+            <div class="p-2 animated fadeIn fast">
+                <h1 class="text-center text-success animated fadeIn fast"> {{ queryMostrar }}</h1>
             </div>
-            <div class="p-2">
+            <div class="p-2 animated fadeIn fast treatment" *ngIf="treatment">
+                <span>Diagnostico: </span><p class="text-center text-success animated fadeIn fast"> {{ diagnosis }}</p>
+                <span>Tratamiento: </span><p class="text-center text-success animated fadeIn fast"> {{ treatment }}</p>
+            </div>
+            <div class="p-2" *ngIf="!treatment">
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="text-center btn btn-success col-md-4 btn-z"> Si </button>
-                    <button type="button" class="text-center btn btn-success col-md-4"> No </button>
+                    <button type="button" (click)="nextAppointment('Si')" class="text-center btn btn-success col-md-4 btn-z"> Si </button>
+                    <button type="button" (click)="nextAppointment('No')"class="text-center btn btn-success col-md-4"> No </button>
                 </div>
             </div>
         </div>
