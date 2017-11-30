@@ -5,6 +5,7 @@ import { FormsModule }   from '@angular/forms';
 import { LoginComponent }  from "../app/components/login/login.component";
 import { SignupComponent } from "../app/components/signup/signup.component";
 import { AmapoliService }  from "../app/services/amapoli.service";
+import { AppointmentComponent } from "../app/components/appointment/appointment.component";
 
 import { AppComponent } from './app.component';
 
@@ -14,7 +15,8 @@ import { APP_ROUTING } from '../app/app.routes';
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
