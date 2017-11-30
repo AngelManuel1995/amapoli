@@ -6,25 +6,25 @@
             </div>
             <div class="p-2">
                 <div class="d-flex flex-column form-group">
-                    <label for="correo"><strong>Correo</strong></label>
-                    <input id="correo" class="form-control text-center" type="email" placeholder="Ingrese Correo" name="correo">
+                    <label for="correo"><strong>Usuario</strong></label>
+                    <input id="correo" class="form-control text-center" #user type="text" placeholder="Ingrese su usuario" name="usuario">
                 </div>
             </div>
             <div class="p-2">
                 <div class="d-flex flex-column form-group">
                     <label for="password"><strong>Contraseña</strong></label>
-                    <input id="password" class="form-control text-center" type="password" placeholder="Ingrese contraseña" name="password">
+                    <input id="password" class="form-control text-center" #password type="password" placeholder="Ingrese contraseña" name="password">
                 </div>
             </div>
             <div class="p-2">
                 <div class="d-flex flex-column form-group">
                     <label for="password"><strong>Confirmación</strong></label>
-                    <input id="password" class="form-control text-center" type="password" placeholder="Ingrese contraseña" name="password">
+                    <input id="password" class="form-control text-center" #passwordConfirmation type="password" placeholder="Ingrese contraseña" name="password">
                 </div>
             </div>
             <div class="p-2">
                 <div class="d-flex flex-column form-group">
-                    <button class="btn btn-info">Registrar me</button>
+                    <button class="btn btn-info" (click)="createUser(user.value, password.value, passwordConfirmation.value )">Registrar me</button>
                     <a [routerLink]="['/login']" class="margin-10">Iniciar sesión</a>
                 </div>
             </div>

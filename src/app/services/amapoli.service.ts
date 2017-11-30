@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions }       from "@angular/http";
 import 'rxjs/add/operator/map';
+import { User } from "../models/user";
 
 @Injectable(
 
@@ -13,20 +14,28 @@ export class AmapoliService{
 
     }
 
-    getPeople(){
-      
-        const body = {
-                        "username":"Juan Agudelo",
-                        "password":"123456789"
-                     };
-        const headers = new Headers({ 'Content-Type': 'application/json; charset=utf8', 'Access-Control-Allow-Origin': '*' });
+    createUser(user:User){
 
+        const headerDict = {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        }
+
+        const headerObj = {                                                                                                                                                                                 
+          headers: new Headers(headerDict), 
+        };
 
         let url = "https://amapoli.herokuapp.com/registrar";
         console.log("Servicio listo para usar");
 
-        return this._http.post(url , JSON.stringify({  username: "Juan Agudelo", password: "123456" }))
+        return this._http.post(
+            url , 
+            JSON.stringify({  username: user.name, password: user.password }),
+            headerObj
+        )
         .map(res => {
+            console.log(res.json());
             res.json()
         });
 
