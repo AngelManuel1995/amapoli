@@ -13,18 +13,6 @@ export class LoginComponent implements OnInit{
     }
     
     ngOnInit(){
-
-       /* console.log("On OnInit");
-        this._amapoliService.getPeople().subscribe(
-            data => 
-            {
-                console.log("Esta es la data que nos llega" + data);
-            },
-            error => 
-            {
-                console.log(error);    
-            }
-        );*/
         
     }
 }

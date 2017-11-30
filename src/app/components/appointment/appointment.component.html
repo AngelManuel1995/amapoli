@@ -1,1 +1,19 @@
 <app-navbar>Loading ... </app-navbar>
+<div *ngIf="_appointmentService.queryRespuesta" class="animated fadeIn fast d-flex align-items-center justify-content-center div-90-p text-center img-appointment">
+    <div class="row d-flex flex-column  margin-b-180">
+        <div class="p-2 margin-b-100">
+            <strong><h1 class="text-center text-white">BIENVENIDO A M A</h1></strong>
+        </div>
+        <div class="p-2 margin-b-30 appointment">
+            <div class="p-2 ">
+                <h1 class="text-center text-success"> {{ queryMostrar }}</h1>
+            </div>
+            <div class="p-2">
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="text-center btn btn-success col-md-4 btn-z"> Si </button>
+                    <button type="button" class="text-center btn btn-success col-md-4"> No </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

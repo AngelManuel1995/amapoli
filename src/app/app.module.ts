@@ -8,6 +8,7 @@ import { AmapoliService }  from "../app/services/amapoli.service";
 import { AppointmentComponent } from "../app/components/appointment/appointment.component";
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "../app/components/shared/navbar/navbar.component";
+import { AppointmentService } from "../app/services/appointment.service";
 
 import { APP_ROUTING } from '../app/app.routes';
 
@@ -25,7 +26,8 @@ import { APP_ROUTING } from '../app/app.routes';
     APP_ROUTING,
     HttpModule
   ],
-  providers: [AmapoliService],
+  providers: [AmapoliService,
+              AppointmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

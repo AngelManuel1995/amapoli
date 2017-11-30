@@ -8,11 +8,12 @@ import { User } from "../models/user";
 )
 
 export class AmapoliService{
-    people:any[] = [];
+  
 
     constructor(private _http:Http){
 
     }
+    userRespuesta:User;
 
     createUser(user:User){
 
@@ -36,7 +37,9 @@ export class AmapoliService{
         )
         .map(res => {
             console.log(res.json());
+            this.userRespuesta = res.json();
             res.json()
+            return res.json();
         });
 
     }

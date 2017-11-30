@@ -11,10 +11,11 @@ import { Router }            from "@angular/router";
 export class SignupComponent implements OnInit{
 
     user:User = {
+        userId:null,
         name:"",
         password:""
     };
-
+ 
     constructor(private _amapoliService:AmapoliService,
                 private _router:Router){
         
@@ -27,12 +28,13 @@ export class SignupComponent implements OnInit{
     createUser(user:string, password:string, passwordConfirmation:string ){
         this.user.name = user;
         this.user.password = passwordConfirmation;
-        console.log(this.user);
+       // console.log(this.user);
 
         this._amapoliService.createUser(this.user).subscribe(
             data => 
-            {
-                this._router.navigate(['/appointment']);
+            {   
+                this.user.userId = data.id;
+                this._router.navigate(['/appointment',this.user.userId]);
             },
             error => 
             {
@@ -42,8 +44,4 @@ export class SignupComponent implements OnInit{
 
 
     }
-
-      /* console.log("On OnInit");
-       */
-
 }
